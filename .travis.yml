@@ -21,9 +21,6 @@ matrix:
           compiler: clang
           env: BUILD_TYPE=cmake
         - os: linux
-          compiler: gcc
-          env: BUILD_TYPE=coverage
-        - os: linux
           compiler: clang
           env: BUILD_TYPE=ubsan
         - os: linux
