@@ -16,12 +16,6 @@ matrix:
     include:
         - os: linux
           compiler: gcc
-          env: BUILD_TYPE=normal
-        - os: linux
-          compiler: clang
-          env: BUILD_TYPE=normal
-        - os: linux
-          compiler: gcc
           env: BUILD_TYPE=cmake
         - os: linux
           compiler: clang
@@ -44,28 +38,7 @@ matrix:
         - os: linux
           compiler: gcc
           env: BUILD_TYPE=valgrind
-        - os: osx
-          osx_image: xcode11.4
-          compiler: gcc
-          env: BUILD_TYPE=normal
-        - os: osx
-          osx_image: xcode11.4
-          compiler: clang
-          env: BUILD_TYPE=normal
-        - os: osx
-          osx_image: xcode11.4
-          compiler: clang
-          env: BUILD_TYPE=cmake
-        - os: osx
-          osx_image: xcode11.4
-          compiler: clang
-          language: objective-c
-          env: BUILD_TYPE=ios
-        - os: osx
-          osx_image: xcode11.4
-          compiler: clang
-          language: objective-c
-          env: BUILD_TYPE=ios-cmake
+
 install:
     - if [ "$TRAVIS_OS_NAME" != "osx" ]; then pip install --user cpp-coveralls > /dev/null; fi
     - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew reinstall libtool > /dev/null; fi
