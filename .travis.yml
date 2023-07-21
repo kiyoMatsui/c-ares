@@ -16,10 +16,19 @@ matrix:
     include:
         - os: linux
           compiler: gcc
+          env: BUILD_TYPE=normal
+        - os: linux
+          compiler: clang
+          env: BUILD_TYPE=normal
+        - os: linux
+          compiler: gcc
           env: BUILD_TYPE=cmake
         - os: linux
           compiler: clang
           env: BUILD_TYPE=cmake
+        - os: linux
+          compiler: gcc
+          env: BUILD_TYPE=coverage
         - os: linux
           compiler: clang
           env: BUILD_TYPE=ubsan
@@ -43,6 +52,7 @@ before_script:
     - |
         if [ "$BUILD_TYPE" = "coverage" ]; then
              export CONFIG_OPTS="--enable-debug --disable-shared --enable-code-coverage --enable-tests"
+             export COVERALLS_REPO_TOKEN=9IdDjojAa7dVTafbU2v7wHVNAWnzrKpbf
         fi
     - |
          if [ "$BUILD_TYPE" = "asan" ]; then
